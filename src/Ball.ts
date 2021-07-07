@@ -1,4 +1,5 @@
 import { environemnt } from "./Environment";
+import {getRandomVelocity} from './randomGenerator';
 
 export interface BallProps {
     index: number;
@@ -19,8 +20,8 @@ export class Ball {
         private canvas: CanvasRenderingContext2D,
         private deleteCallback: (index: number) => void) {
 
-        this.velocityX = (Math.random() * 5 + 5) * (Math.floor(Math.random() * 2) || -1)
-        this.velocityY = (Math.random() * 5 + 5) * (Math.floor(Math.random() * 2) || -1);
+        this.velocityX = getRandomVelocity();
+        this.velocityY = getRandomVelocity();
     }
 
     public setFriction(value: number) {

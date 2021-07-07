@@ -4,6 +4,7 @@ import { environemnt } from "./Environment";
 
 import EnvironmentComponent from './EnvironmentComponents/EnvironmentComponent';
 import './App.css';
+import { generateRandomBallId, getRadiusWithOffset } from './randomGenerator';
 
 export default () => {
 
@@ -53,8 +54,8 @@ export default () => {
   const addBall = (yMouseCoordinate: number) =>
     canvasContextCheck((canvas) => {
 
-      const id = Math.random() * 1000;
-      const radiusWithOffset = 10+Math.random()*30;
+      const id = generateRandomBallId();
+      const radiusWithOffset = getRadiusWithOffset();
       const gravityWithOffset = gravity + radiusWithOffset/100;
 
       console.log('ball count: ',Object.entries(balls).length)
